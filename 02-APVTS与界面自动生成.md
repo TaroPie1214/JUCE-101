@@ -15,10 +15,10 @@ https://docs.juce.com/master/classAudioProcessorValueTreeState.html
 ```cpp
 // PluginProcessor.h
 public:
-		// ...
-		using APVTS = juce::AudioProcessorValueTreeState;
+        // ...
+        using APVTS = juce::AudioProcessorValueTreeState;
     static APVTS::ParameterLayout createParameterLayout();
-    
+
     APVTS apvts {*this, nullptr, "Parameters", createParameterLayout() };
 ```
 
@@ -30,9 +30,9 @@ public:
 juce::AudioProcessorValueTreeState::ParameterLayout TaroCompressorAudioProcessor::createParameterLayout()
 {
     APVTS::ParameterLayout layout;
-    
+
     using namespace juce;
-    
+
     layout.add(std::make_unique<AudioParameterFloat>(ParameterID { "Threshold", 1 },
                                                      "Threshold",
                                                      NormalisableRange<float>(-60, 12, 1, 1), 0));
@@ -43,7 +43,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout TaroCompressorAudioProcessor
 
     layout.add(std::make_unique<AudioParameterFloat>(ParameterID { "Release", 1 }, "Release", attackReleaseRange, 250));
 
-    auto choices = std::vector<double>{ 1, 1.5, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20, 50, 100 };
+    auto choices = std::vector<double>{ 1.5, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20, 50, 100 };
     juce::StringArray sa;
     for ( auto choice : choices )
     {
@@ -75,19 +75,19 @@ layout.add(std::make_unique<AudioParameterFloat>(ParameterID { "Threshold", 1 },
 - parameterName：参数的名称，用于在交互界面上进行展示等等
 
 - normalisableRange：参数的范围，它也接受了四个参数，分别是
-
+  
   1. rangeStart：最小值
-
+  
   2. rangeEnd：最大值
-
+  
   3. intervalValue：步进
-
+  
   4. skewFactor：斜率因子
-
+     
      - 大部分情况下都是1，如果参数绑定了一个滑块或者旋钮，那么1就表示随着滑块或旋钮的移动，参数均匀变化
-
+     
      - 小部分情况下需要手动调整，比如该参数是EQ效果器中被衰减或增益的一个频点，那么在较低频率时参数应该变化较慢，在较高频率时，则应该变化较快，这一点在大部分EQ效果器上的横轴分布就有体现
-
+       
        ![image-20230925161504441](https://cdn.jsdelivr.net/gh/TaroPie0224/blogImage@main/img/202309251615581.png)
 
 - defaultValue：默认值
@@ -118,7 +118,7 @@ layout.add(std::make_unique<AudioParameterFloat>("Threshold",
 - defaultItemIndex：默认选项的Index
 
 ```cpp
-auto choices = std::vector<double>{ 1, 1.5, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20, 50, 100 };
+auto choices = std::vector<double>{ 1.5, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20, 50, 100 };
 juce::StringArray sa;
 for ( auto choice : choices )
 {
@@ -127,7 +127,7 @@ for ( auto choice : choices )
 layout.add(std::make_unique<AudioParameterChoice>(ParameterID { "Ratio", 1 }, "Ratio", sa, 3));
 ```
 
-在这里，我们首先创建了一个juce::StringArray数组，并把所有的Ratio可选值添加到了其中，然后再以此创建了一个AudioParameterChoice并添加到了layout，其中默认选项的index为3，所以在插件初始化时，Ratio的值会默认是3（0->1，1->1.5，2->2，3->3，...）
+在这里，我们首先创建了一个juce::StringArray数组，并把所有的Ratio可选值添加到了其中，然后再以此创建了一个AudioParameterChoice并添加到了layout，其中默认选项的index为3，所以在插件初始化时，Ratio的值会默认是4（0->1.5，1->2，2->3，3->4，...）
 
 # 自动界面生成
 
@@ -162,6 +162,10 @@ juce::AudioProcessorEditor* TaroCompressorAudioProcessor::createEditor()
 ![image-20230925113623287](https://cdn.jsdelivr.net/gh/TaroPie0224/blogImage@main/img/202309251705638.png)
 
 # 总结
+
+你可以在这里找到本章中的相关代码：
+
+[TaroPie1214/TaroStudio: A collection of all my plugins! (github.com)](https://github.com/TaroPie1214/TaroStudio/tree/main/TaroCompressor)
 
 在本章中，我们首先学习了JUCE中常用的参数管理方式——APVTS，了解了如何向其中添加我们想要的参数，然后根据这些参数自动生成对应的界面。
 
