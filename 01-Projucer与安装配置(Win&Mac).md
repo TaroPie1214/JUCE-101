@@ -10,7 +10,7 @@ Git: [juce-framework/JUCE: JUCE is an open-source cross-platform C++ application
 
 ## Global Paths配置
 
-下载完成后会得到一个JUCE文件夹，如果你不嫌麻烦在之后配置Global Paths的话，对于Windows用户，**我强烈建议你直接将这整个文件夹放在C盘的根目录下**，这是由于Projucer的默认设置就是指向这个位置的
+下载完成后会得到一个JUCE文件夹，对于Windows用户，如果你不嫌麻烦在之后配置Global Paths，且你并没有多年的开发经验的话，**我强烈建议你直接将这整个文件夹放在C盘的根目录下**，这是由于Projucer的默认设置就是指向这个位置的
 
 ![](https://cdn.jsdelivr.net/gh/TaroPie0224/blogImage@main/img/2023/04/03/20230403-100919.png)
 
@@ -93,3 +93,9 @@ Mac对应的默认位置：
 ![](https://cdn.jsdelivr.net/gh/TaroPie0224/blogImage@main/img/2023/04/03/20230403-111255.png)DAW扫描到插件后，也就可以正常挂载了
 
 ![](https://cdn.jsdelivr.net/gh/TaroPie0224/blogImage@main/img/2023/04/03/20230403-110919.png)
+
+# 总结
+
+在本章中，我们学习了在Win和Mac下使用Projucer并完成工程的基础配置，成功编译运行。
+
+在下一章中，我们将学习如何将我们想要控制的参数添加到插件中，并自动生成对应的交互界面。
