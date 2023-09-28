@@ -15,8 +15,8 @@ https://docs.juce.com/master/classAudioProcessorValueTreeState.html
 ```cpp
 // PluginProcessor.h
 public:
-        // ...
-        using APVTS = juce::AudioProcessorValueTreeState;
+    // ...
+    using APVTS = juce::AudioProcessorValueTreeState;
     static APVTS::ParameterLayout createParameterLayout();
 
     APVTS apvts {*this, nullptr, "Parameters", createParameterLayout() };
