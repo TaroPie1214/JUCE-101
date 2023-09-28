@@ -161,7 +161,7 @@ juce::AudioProcessorEditor* TaroCompressorAudioProcessor::createEditor()
 
 ![image-20230925113623287](https://cdn.jsdelivr.net/gh/TaroPie0224/blogImage@main/img/202309251705638.png)
 
-不过，由于我们并没有设计压缩器的DSP部分，所以无论你如何拖动Slider，这个效果器都处于被旁通的状态。但是不用担心，我们将马上进入DSP内容的讲解！
+不过，由于我们并没有设计压缩器的DSP（数字信号处理）部分，所以无论你如何拖动Slider，这个效果器都处于被旁通的状态。但是不用担心，我们将马上进入DSP内容的讲解！
 
 # 总结
 
@@ -171,4 +171,4 @@ juce::AudioProcessorEditor* TaroCompressorAudioProcessor::createEditor()
 
 在本章中，我们首先学习了JUCE中常用的参数管理方式——APVTS，了解了如何向其中添加我们想要的参数，然后根据这些参数自动生成对应的界面。
 
-在下一章中，我们将开始窥探dsp部分的内容，由此创建我们第一个效果器！
+在下一章中，我们将开始窥探DSP部分的内容，由此创建我们第一个效果器！
