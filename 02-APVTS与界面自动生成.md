@@ -161,6 +161,8 @@ juce::AudioProcessorEditor* TaroCompressorAudioProcessor::createEditor()
 
 ![image-20230925113623287](https://cdn.jsdelivr.net/gh/TaroPie0224/blogImage@main/img/202309251705638.png)
 
+不过，由于我们并没有设计压缩器的DSP部分，所以无论你如何拖动Slider，这个效果器都处于被旁通的状态。但是不用担心，我们将马上进入DSP内容的讲解！
+
 # 总结
 
 你可以在这里找到本章中的相关代码：
