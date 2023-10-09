@@ -92,7 +92,7 @@ layout.add(std::make_unique<AudioParameterFloat>(ParameterID { "Threshold", 1 },
 
 - defaultValue：默认值
 
-在这里你会发现，在parameterID的位置，我并没有直接给出一个字符串，而是使用了
+你可能还会发现，在parameterID的位置，我并没有直接给出一个字符串，而是使用了
 
 ```cpp
 ParameterID { "Threshold", 1 }
