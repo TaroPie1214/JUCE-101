@@ -70,8 +70,6 @@ void AudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiB
 juce::ScopedNoDenormals noDenormals;
 ```
 
-很好，第一行代码就完全不知道它在说什么。
-
 它的意思其实是禁用当前作用域下的浮点数的非规格化处理，可能有点绕口，但是这能在部分情况下显著提升音频的处理速度，当然也会伴随着一些负面影响。
 
 关于具体什么是浮点数的规格化和非规格化处理，以及它们分别有什么利弊，可以查看以下这位老师的博客，讲解的十分清晰：
@@ -113,9 +111,9 @@ for (int channel = 0; channel < totalNumInputChannels; ++channel)
 
 # Gain
 
-想必Gain（增益）效果器是什么东西应该不用再具体介绍了吧？我们可以通过Gain来控制音频的响度。
+Gain（增益）效果器是什么东西应该不用再具体介绍了，我们可以通过Gain来控制音频的响度。
 
-接下来将用四种不同的方式来实现这个效果
+接下来将用四种不同的方式来实现这个效果。
 
 ## 方式一
 
@@ -308,5 +306,3 @@ void TaroGainAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
     gain.process(juce::dsp::ProcessContextReplacing<float>(block));
 }
 ```
-
-
