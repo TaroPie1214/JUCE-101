@@ -1,3 +1,9 @@
+# 前言
+
+你可以在这里找到本章中的相关代码：
+
+[TaroStudio/TaroCompressor at main · TaroPie1214/TaroStudio (github.com)](https://github.com/TaroPie1214/TaroStudio/tree/main/TaroCompressor)
+
 # 参数管理
 
 在我们设计各类插件时，不可避免的会面对众多参数的管理问题（比如下图中一个简单的compressor就包含了Threshold，Attack，Release，Ratio等参数），对此JUCE提供了一种方法叫做AudioProcessorValueTreeState（以下简称APVTS）: 

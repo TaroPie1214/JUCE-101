@@ -2,7 +2,15 @@
 
 在上一章中，我们已经学会了如何配置参数。在这一章中，我们将设计一个Gain效果器，通过**多种不同的实现方式**来介绍参数的获取和Real-Time效果器的DSP部分基本写作逻辑。
 
+你可以在这里找到本章中的相关代码：
+
+[TaroStudio/TaroGain at main · TaroPie1214/TaroStudio (github.com)](https://github.com/TaroPie1214/TaroStudio/tree/main/TaroGain)
+
 # 准备工作
+
+在Projucer中添加module：juce_dsp
+
+![iShot2023-10-09 11.11.31](https://cdn.jsdelivr.net/gh/TaroPie0224/blogImage@main/img/202310091111021.jpg)
 
 根据之前的教程创建好工程并配置好我们这次需要的参数——Gain：
 
@@ -21,9 +29,14 @@ juce::AudioProcessorValueTreeState::ParameterLayout TaroGainAudioProcessor::crea
 }
 ```
 
-在Projucer中添加module：juce_dsp
+自动界面生成：
 
-![iShot2023-10-09 11.11.31](https://cdn.jsdelivr.net/gh/TaroPie0224/blogImage@main/img/202310091111021.jpg)
+```cpp
+juce::AudioProcessorEditor* TaroGainAudioProcessor::createEditor()
+{
+    return new juce::GenericAudioProcessorEditor(*this);
+}
+```
 
 # processBlock
 
@@ -306,3 +319,13 @@ void TaroGainAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
     gain.process(juce::dsp::ProcessContextReplacing<float>(block));
 }
 ```
+
+# 总结
+
+你可以在这里找到本章中的相关代码：
+
+[TaroStudio/TaroGain at main · TaroPie1214/TaroStudio (github.com)](https://github.com/TaroPie1214/TaroStudio/tree/main/TaroGain)
+
+在这一章中，我们学习了Real-Time效果器的基本写法，比如AudioBuffer，AudioBlock的相关用法等。以及DSP module的使用方式（创建->prepareToPlay中配置spec，processBlock中进行process）等等。
+
+接下来我们会继续深入各种常见效果器背后的DSP原理，并将其编写为JUCE效果器~
