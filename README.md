@@ -7,5 +7,3 @@
 [03-编写你的第一个效果器（Gain）](https://github.com/TaroPie1214/JUCE-101/blob/main/03-%E7%BC%96%E5%86%99%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%95%88%E6%9E%9C%E5%99%A8%EF%BC%88Gain%EF%BC%89.md)
 
 [04-保存插件状态](https://github.com/TaroPie1214/JUCE-101/blob/main/04-%E4%BF%9D%E5%AD%98%E6%8F%92%E4%BB%B6%E7%8A%B6%E6%80%81.md)
-
-
